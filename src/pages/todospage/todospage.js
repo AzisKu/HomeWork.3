@@ -5,7 +5,9 @@ import {changeTodoInputAction, addTodoAction} from "../../redux/actions";
 
 export default function TodosPage() {
     const dispatch = useDispatch();
-    const {todoValue, todos} = useSelector(state => state)
+    const {todoValue, todos} = useSelector(state => state.todoReducer)
+
+    const {title} = useSelector(state => state.titleReducer())
 
     const changeInput = (e) => {
         dispatch(changeTodoInputAction(e.target.value))
@@ -19,6 +21,11 @@ export default function TodosPage() {
         <>
             <input type="text" placeholder="todo" onChange={changeInput} value={todoValue}/>
             <button onClick={addTodo}>add todo</button>
+
+            <input type="text" name="Azis" form className="myform" onSubmit={} />
+
+
+            <button>say hello</button>
 
             {
                 todos.map(todo => <Todo todoInfo={todo}/>)
